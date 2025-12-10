@@ -1,0 +1,48 @@
+# Python缓存
+__pycache__/
+*.py[cod]
+*.pyc
+
+# 配置文件
+config.yaml
+
+# 编译输出
+las2pcd/build/*.o
+pointcloud_divider-master/build/*.o
+*.a
+
+# 日志
+*.log
+
+# 临时文件
+*.tmp
+tmp/
+
+# 点云数据
+*.las
+*.pcd
+*.ply
+
+# 测试数据
+test_data/
+examples/
+
+# 备份
+*.backup
+*.bak
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# 系统
+.DS_Store
+*~
+
+# 注意：保留编译好的可执行文件
+!las2pcd/build/las2pcd
+!las2pcd/build/las2pcd_intensity
+!las2pcd/build/pcd_enhancer
+!pointcloud_divider-master/build/pointcloud_divider
+!bin/pointcloud-converter

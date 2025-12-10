@@ -1,0 +1,14 @@
+# 点云转换工具配置文件
+executables:
+  las2pcd: "las2pcd/build/las2pcd"
+  las2pcd_intensity: "las2pcd/build/las2pcd_intensity"
+  pcd_enhancer: "las2pcd/build/pcd_enhancer"
+  pointcloud_divider: "pointcloud_divider-master/build/pointcloud_divider"
+
+defaults:
+  divider:
+    grid_size_x: 20
+    grid_size_y: 20
+    leaf_size: 0.2
+    merge_pcds: false
+  output_prefix: "pointcloud_map"

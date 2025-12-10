@@ -1,0 +1,6 @@
+pointcloud_divider:
+  grid_size_x: 20
+  grid_size_y: 20
+  leaf_size: 0.2
+  merge_pcds: false
+  use_large_grid: false
