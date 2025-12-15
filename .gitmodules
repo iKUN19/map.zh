@@ -1,0 +1,3 @@
+[submodule "las2pcd"]
+	path = las2pcd
+	url = https://github.com/pixmoving-moveit/las2pcd.git
