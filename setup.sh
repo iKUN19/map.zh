@@ -12,7 +12,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "$SCRIPT_DIR"
 
 # 安装系统依赖
-echo "[1/3] 安装系统依赖..."
+echo "[1/4] 安装系统依赖..."
 sudo apt-get update
 sudo apt-get install -y \
     python3 python3-pip \
@@ -24,11 +24,20 @@ sudo apt-get install -y \
     libyaml-cpp-dev
 
 # 安装 Python 依赖（可选，如果要修改 GUI）
-echo "[2/3] 安装 Python 依赖..."
+echo "[2/4] 安装 Python 依赖..."
 pip3 install --user -r requirements.txt
 
+# 编译和安装 libLAS
+echo "[3/4] 编译 libLAS..."
+cd libLAS-master/build
+cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local
+make -j$(nproc)
+sudo make install
+sudo ldconfig
+cd "$SCRIPT_DIR"
+
 # 编译 C++ 工具
-echo "[3/3] 编译 C++ 工具..."
+echo "[4/4] 编译 C++ 工具..."
 
 # 编译 las2pcd
 cd las2pcd
@@ -50,7 +59,7 @@ if [ ! -f "config.yaml" ]; then
 fi
 
 # 设置权限
-chmod +x bin/pointcloud-converter
+chmod +x pointcloud-converter
 
 echo ""
 echo "✅ 安装完成！"
