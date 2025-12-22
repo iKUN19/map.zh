@@ -18,7 +18,7 @@ sudo apt-get install -y \
     python3 python3-pip \
     cmake build-essential \
     pdal libpdal-dev \
-    liblas-bin liblas-dev \
+    liblas-bin liblas-dev liblas-c-dev \
     liblaszip-dev \
     libpcl-dev \
     libyaml-cpp-dev
@@ -29,7 +29,8 @@ pip3 install --user -r requirements.txt
 
 # 编译和安装 libLAS
 echo "[3/4] 编译 libLAS..."
-cd libLAS-master/build
+cd libLAS-master
+mkdir -p build && cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local
 make -j$(nproc)
 sudo make install
